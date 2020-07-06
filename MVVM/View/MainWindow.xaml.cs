@@ -26,30 +26,29 @@ namespace MVVM
     public partial class MainWindow : Window
     {
 
-
-        private ObservableCollection<Persoon> Personen;
         public MainWindow()
         {
-
             InitializeComponent();
-            list.ItemsSource = Personen;
 
-            Personen = new ObservableCollection<Persoon>()
-            {
-               new Persoon() {Voornaam= "John", Achternaam="Doe", Opmerkingen= "ksnqdflnsf",TelefoonNummer="51351351"},
-               new Persoon() {Voornaam= "Tom", Achternaam="janssens", Opmerkingen= "ksnqdflnsf",TelefoonNummer="535135153"},
-            };
-        
         }
 
         private void PersoonToevoegenClick(object sender, RoutedEventArgs e)
         {
             PersoonToevoegen PersoonToevoegen = new PersoonToevoegen();
             this.Visibility = Visibility.Hidden;
-            PersoonToevoegen.Show(); 
+            PersoonToevoegen.Show();
         }
-    }
 
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+
+            System.Windows.Data.CollectionViewSource persoonViewModelViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("persoonViewModelViewSource")));
+            // Load data by setting the CollectionViewSource.Source property:
+            persoonViewModelViewSource.Source = PersoonViewModel.ToonLijst();
+
+        }
+
+    }
 }    
      
 

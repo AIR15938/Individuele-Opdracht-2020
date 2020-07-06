@@ -4,6 +4,7 @@ using MVVM.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,30 +24,22 @@ namespace MVVM.View
     /// </summary>
     public partial class PersoonToevoegen : Window
     {
-        private ObservableCollection<Persoon> Personen;
-
+   
         public PersoonToevoegen()
         {
             InitializeComponent();
 
-
-            Personen = new ObservableCollection<Persoon>()
-            {
-               new Persoon() {Voornaam= "John", Achternaam="Doe", Opmerkingen= "ksnqdflnsf",TelefoonNummer="51351351"},
-               new Persoon() {Voornaam= "Tom", Achternaam="janssens", Opmerkingen= "ksnqdflnsf",TelefoonNummer="535135153"},
-            };
-
-
         }
 
 
 
-        private void Click_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //Personen.Add(new Persoon){ Voornaam = txtVoorNaam,Achternaam = txtAchterNaam, Telefoonnummer = txtTelefoonNummer, Openingsuren = txtOpeningsuren, Sluitingsdagen = txtSluitingsdagen}
+            MainWindow window1 = new MainWindow();
+            window1.Show();
+            this.Hide();
 
         }
-
 
         private void BtnLoadFromFile_Click(object sender, RoutedEventArgs e)
         {
@@ -58,8 +51,19 @@ namespace MVVM.View
             }
         }
 
-    }
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
 
+            System.Windows.Data.CollectionViewSource persoonViewModelViewSource = ((System.Windows.Data.CollectionViewSource)(this.FindResource("persoonViewModelViewSource")));
+            persoonViewModelViewSource.Source = PersoonViewModel.ToonLijst();
+
+
+        }
+
+
+    }
 }
+
+
 
  

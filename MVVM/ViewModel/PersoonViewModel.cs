@@ -9,43 +9,55 @@ using System.Windows;
 using System.Windows.Input;
 using MVVM.Command;
 using MVVM.Model;
-
+using MVVM.View;
+using static MVVM.Model.Persoon;
 
 namespace MVVM.ViewModel
 {
-    //@Filip : Ik heb problemen met mijnn Observable collection static te maken, zodat deze over de hele app kan gebruikt worden.
-    //Het uitproberen van een aparte library DLL kostte te veel tijd om te implementeren.
 
-    //private ObservableCollection<Persoon> Personen;
 
     public class PersoonViewModel : ViewModelBase
     {
+        #region fields
 
+        private ObservableCollection<Object> klantenLijst;
 
-        //public static ObservableCollection<Persoon> Personen
-        //{
-        //    get; set;
-        //}
+        #endregion
 
-        //public PersoonViewModel()
-        //{ 
-        //    Personen = new ObservableCollection<Persoon>();
+        #region properties
+        public  ObservableCollection<Object> KlantenLijst
+        {
+            get { return klantenLijst; }
+            set { klantenLijst = value; }
+        }
+        #endregion
 
-         
-        //}
+        public PersoonViewModel()
+        {
 
-        //public static ObservableCollection<Persoon> ToonLijst()
-        //{
-        //    Personen.Add(new Persoon() { Voornaam = "Andreas", Achternaam = "Otten", TelefoonNummer = "04685351035", Opmerkingen = "flsnglfnds" });
-        //    Personen.Add(new Persoon() { Voornaam = "dqsfqsdf", Achternaam = "qsdfqsfd", TelefoonNummer = "04685351035", Opmerkingen = "flsnglfnds" });
-        //    Personen.Add(new Persoon() { Voornaam = "qsdfqsdfsqdf", Achternaam = "sqfdqsfd", TelefoonNummer = "04685351035", Opmerkingen = "flsnglfnds" });
+            
+        }
 
-        //    return Personen;
-        //}
+        public static ObservableCollection<Object> ToonLijst()
+        {
+            return new ObservableCollection<Object>
+            {
+            new Bedrijf() { Voornaam = "Atlas", Achternaam = "Copco", TelefoonNummer = "0468551035", Opmerkingen = "Test", Openingsuren = "06-22H", Sluitingsdagen= "Zaterdag, Zondag" },
+            new Bedrijf() { Voornaam = "Bekaert", TelefoonNummer = "0498553355", Opmerkingen = "Test2", Openingsuren = "09-17H", Sluitingsdagen = "Zondag"},
+            new Bedrijf() { Voornaam = "Coca", Achternaam = "Cola", TelefoonNummer = "0485335562", Opmerkingen = "Test3", Openingsuren = "9-17H"},
+            new Persoon() {Voornaam = "Dirk", Achternaam= "Janssens", TelefoonNummer = "0491083172", Opmerkingen = "Test4" },
 
-  
-   
-     
+            };
+
+        }
+
     }
+
+
+
+
+
+
+
 }
 

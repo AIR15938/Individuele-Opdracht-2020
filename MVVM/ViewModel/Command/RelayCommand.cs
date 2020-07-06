@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVVM.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,5 +34,10 @@ namespace MVVM.Command
         {
             this.execute(parameter);
         }
+
+       
+
+
+
     }
 }

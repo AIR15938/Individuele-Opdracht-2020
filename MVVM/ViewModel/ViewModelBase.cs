@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace MVVM.ViewModel
 {
-    public abstract class ViewModelBase : ObservableCollection<Persoon>
+    public abstract class ViewModelBase : ObservableCollection<Object>
     {
         
 

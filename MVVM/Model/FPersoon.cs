@@ -8,17 +8,18 @@ namespace MVVM.Model
 {
     public class FPersoon : Persoon
     {
-
+        #region fields
         private string profielfoto;
+        #endregion
 
+        #region properties
         public string Profielfoto
         {
             get { return profielfoto; }
             set { profielfoto = value; }
         }
 
-
-
+        #endregion
 
     }
 }

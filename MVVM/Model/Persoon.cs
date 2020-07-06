@@ -7,21 +7,22 @@ using System.Threading.Tasks;
 
 namespace MVVM.Model
 {
-    public class Persoon
+    public class Persoon 
     {
         #region Fields
-        private string naam;
         public string voornaam;
         public string achternaam;
         private string telefoonNummer;
         private string opmerkingen;
+        private TypePersoon typePersoon;
         #endregion
 
         #region Properties
         public string Naam
         {
-            get;set;
-                                  
+            get => $"{voornaam} {achternaam}";
+            set { }
+
         }
 
         public string Voornaam
@@ -48,8 +49,21 @@ namespace MVVM.Model
             set { opmerkingen = value; }
 
         }
-        #endregion
+
+        public TypePersoon Type
+        {
+            get { return typePersoon; }
+            set { typePersoon = value; }
+        }
+        public enum TypePersoon
+        {
+            Persoon, FysiekePersoon, Bedrijf
+        }
+
+            #endregion
 
 
     }
+
+
 }
